@@ -6,9 +6,9 @@ export const Sidebar = () => {
     <aside className="journal__sidebar">
 
       <div className="journal__sidebar-navbar">
-        <h3 className="mt-5">
+        <h3 className="mt-1">
           <i className="far fa-moon" />
-          <span>Joseph</span>
+          <span> Joseph</span>
         </h3>
 
         <button className="btn">
