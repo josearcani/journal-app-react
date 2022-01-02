@@ -17,6 +17,7 @@
 .journal__sidebar-navbar {
   display: flex;
   justify-content: space-between;
+  margin-top: 10px;
 }
 
 .journal__sidebar-navbar h3 {
@@ -25,13 +26,16 @@
 
 .journal__new-entry {
   align-items: center;
+  border: 2px solid $light-grey;
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   margin-top: 30px;
   width: 100%;
-
-  transition: color .4s ease;
+  transition: .4s ease;
 
   &:hover {
     color: darken($color: white, $amount: 30);
