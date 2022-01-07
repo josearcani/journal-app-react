@@ -36,7 +36,7 @@ export const AppRouter = () => {
   }, [ dispatch, checking, isLoggedIn ])
 
   if (checking) {
-    return (<Spinner />)
+    return <Spinner />
   }
 
   return (

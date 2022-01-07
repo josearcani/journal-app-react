@@ -1,9 +1,15 @@
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup, updateProfile } from 'firebase/auth';
+import {
+  createUserWithEmailAndPassword, 
+  getAuth, 
+  signInWithEmailAndPassword, 
+  signInWithPopup, 
+  signOut, 
+  updateProfile,
+} from 'firebase/auth';
 import { googleAuthProvider } from '../firebase/firebase-config';
 import { types } from '../types/types';
 import { startLoading, finishLoading } from './ui';
 
-// async action
 export const startLoginEmailPassword = (email, password) => {
   return (dispatch) => {
     dispatch(startLoading());
@@ -57,3 +63,15 @@ export const login = (uid, displayName) => ({
     displayName
   }
 })
+
+export const logout = () => ({
+  type: types.logout,
+})
+
+export const startLogout = () => {
+  return async (dispatch) => {
+    const auth = getAuth();
+    await signOut(auth);
+    dispatch(logout());
+  }
+}
