@@ -1,25 +1,29 @@
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup, updateProfile } from 'firebase/auth';
 import { googleAuthProvider } from '../firebase/firebase-config';
 import { types } from '../types/types';
+import { startLoading, finishLoading } from './ui';
 
 // async action
 export const startLoginEmailPassword = (email, password) => {
-  // use fetch or axios to get data
   return (dispatch) => {
+    dispatch(startLoading());
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
-        console.log(user)
         dispatch(login(user.uid, user.displayName))
       })
       .catch((e) => {
         console.log(e)
+      })
+      .finally(() => {
+        dispatch(finishLoading())
       })
   }
 }
 
 export const startRegisterWithEmailPasswordName = (email, password, name) => {
   return (dispatch) => {
+    dispatch(startLoading());
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then( async ({ user }) => {
@@ -29,6 +33,9 @@ export const startRegisterWithEmailPasswordName = (email, password, name) => {
       })
       .catch((e) => {
         console.log(e);
+      })
+      .finally(() => {
+        dispatch(finishLoading())
       })
   }
 }

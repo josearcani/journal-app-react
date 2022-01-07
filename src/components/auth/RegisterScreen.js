@@ -12,7 +12,7 @@ export const RegisterScreen = () => {
   const dispatch = useDispatch();
 
   // the cb inside useSelector returns the entire state { auth, ui }
-  const { msgError } = useSelector( state => state.ui);
+  const { msgError, loading } = useSelector( state => state.ui);
 
   // console.log( msgError);
 
@@ -108,7 +108,7 @@ export const RegisterScreen = () => {
       <button
         type="submit"
         className="btn btn-primary btn-block mb-1"
-        // disabled={true}
+        disabled={ loading }
       >
         Register
       </button>
