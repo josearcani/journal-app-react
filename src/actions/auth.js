@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import {
   createUserWithEmailAndPassword, 
   getAuth, 
@@ -18,8 +19,14 @@ export const startLoginEmailPassword = (email, password) => {
       .then(({ user }) => {
         dispatch(login(user.uid, user.displayName))
       })
-      .catch((e) => {
-        console.log(e)
+      .catch((error) => {
+        // {"code":"auth/user-not-found","customData":{},"name":"FirebaseError"}
+        console.log(error.code, '****', error.message);
+        Swal.fire(
+          'Error',
+          'The password is invalid or the user does is not registered',
+          'error'
+        )
       })
       .finally(() => {
         dispatch(finishLoading())
@@ -37,8 +44,13 @@ export const startRegisterWithEmailPasswordName = (email, password, name) => {
         console.log(user)
         dispatch(login(user.uid, user.displayName))
       })
-      .catch((e) => {
-        console.log(e);
+      .catch((error) => {
+        // console.log(error.message);
+        Swal.fire(
+          'Error',
+          error.message,
+          'error'
+        )
       })
       .finally(() => {
         dispatch(finishLoading())
