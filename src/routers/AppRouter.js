@@ -38,7 +38,7 @@ export const AppRouter = () => {
     })
     setChecking(false);
     // dependency of dispatch does not change actually
-  }, [ dispatch, checking, isLoggedIn ])
+  }, [ dispatch, setChecking, setIsLoggedIn ])
 
   if (checking) {
     return <Spinner />
