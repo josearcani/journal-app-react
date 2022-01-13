@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, updateDoc } from "firebase/firestore";
 import Swal from 'sweetalert2';
 import { db } from "../firebase/firebase-config";
 import { fileUpload } from "../helpers/fileUpload";
@@ -94,3 +94,18 @@ export const startUploading = (file) => {
   }
 }
 
+export const startDeleting = (id) => {
+  return async (dispatch, getState) => {
+    const { uid } = getState().auth;
+    const noteRef = doc(db, `${ uid }/journal/notes/${ id }`);
+    await deleteDoc(noteRef);
+
+    dispatch(deleteNote(id));
+  }
+}
+
+// to delete locally
+export const deleteNote = (id) => ({
+  type: types.notesDelete,
+  payload: id
+})
