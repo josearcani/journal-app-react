@@ -32,11 +32,10 @@ export const AppRouter = () => {
         dispatch(startLoadingNotes(user.uid))
         setIsLoggedIn(true)
       } else {
-        console.count('setIsLoggedIn else')
         setIsLoggedIn(false)
       }
+      setChecking(false);
     })
-    setChecking(false);
     // dependency of dispatch does not change actually
   }, [ dispatch, setChecking, setIsLoggedIn ])
 

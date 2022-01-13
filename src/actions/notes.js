@@ -107,9 +107,17 @@ export const startDeleting = (id) => {
   return async (dispatch, getState) => {
     const { uid } = getState().auth;
     const noteRef = doc(db, `${ uid }/journal/notes/${ id }`);
+    Swal.fire({
+      title: 'Deleting...',
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      willOpen: () => {
+        Swal.showLoading();
+      }
+    })
     await deleteDoc(noteRef);
-
     dispatch(deleteNote(id));
+    Swal.close();
   }
 }
 
