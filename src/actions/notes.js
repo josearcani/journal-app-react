@@ -17,9 +17,18 @@ export const startNewNote = () => {
     }
     // https://firebase.google.com/docs/firestore/manage-data/add-data#add_a_document
     const docRef = await addDoc(collection(db ,`${uid}/journal/notes`), newNote);
-    dispatch(noteActive(docRef.id, newNote))
+    dispatch(noteActive(docRef.id, newNote));
+    dispatch(addNewNote(docRef.id, newNote));
   }
 }
+
+export const addNewNote = (id, newNote) => ({
+  type: types.notesAddNew,
+  payload: {
+    id,
+    ...newNote
+  }
+})
 
 export const noteActive = (id, newNote) => ({
   type: types.notesActive,
