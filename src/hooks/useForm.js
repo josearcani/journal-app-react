@@ -19,9 +19,9 @@ export const useForm = (initialState = {}) => {
     })
   }
 
-  // limpiar formulario
-  const cleanForm = () => {
-    setValues(initialState);
+  // limpiar con un nuevo estado si se manda
+  const cleanForm = (newFormState = initialState) => {
+    setValues(newFormState);
   }
 
   return [ values, handleInputChange, cleanForm ];

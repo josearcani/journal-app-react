@@ -80,10 +80,15 @@ export const logout = () => ({
   type: types.logout,
 })
 
+export const logoutCleaning = () => ({
+  type: types.notesLogoutCleaning
+})
+
 export const startLogout = () => {
   return async (dispatch) => {
     const auth = getAuth();
     await signOut(auth);
     dispatch(logout());
+    dispatch(logoutCleaning());
   }
 }
