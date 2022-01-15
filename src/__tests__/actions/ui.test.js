@@ -1,5 +1,5 @@
-import { finishLoading, removeError, setError, startLoading } from "../../actions/ui"
-import { types } from "../../types/types";
+import { finishLoading, removeError, setError, startLoading } from '../../actions/ui'
+import { types } from '../../types/types';
 
 describe('Test on ui actions', () => {
   
