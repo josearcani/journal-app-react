@@ -5,16 +5,29 @@ import { deleteDoc, doc, getDoc } from 'firebase/firestore';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { db } from '../../firebase/firebase-config';
-import { addNewNote, noteActive, setNotes, startLoadingNotes, startNewNote, startSaveNote } from '../../actions/notes';
+import { addNewNote, noteActive, setNotes, startLoadingNotes, startNewNote, startSaveNote, startUploading } from '../../actions/notes';
 import { types } from '../../types/types';
+import { fileUpload } from '../../helpers/fileUpload';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 const store = mockStore({
   auth: {
     uid: 'TESTING'
+  },
+  notes: {
+    active: {
+      id: 'ZnWNg1rTKI7C179puWe4',
+      title: 'hello',
+      body: 'world'
+    }
   }
 });
+
+// fileUpload triggered by startUploading
+jest.mock('../../helpers/fileUpload', () => ({
+  fileUpload: jest.fn()
+}))
 
 describe('Test on notes actions', () => {
 
@@ -77,4 +90,19 @@ describe('Test on notes actions', () => {
     expect(noteSnap.data().title).toEqual(note.title);
 
   })
+
+  test('should startUploading update url property of note', async () => {
+    fileUpload.mockReturnValue('https://test.com/url.png');
+    const file = [];
+    // data that fileUpload returns
+    await store.dispatch(startUploading(file));
+
+    // verify changes
+    const docRef = doc(db, `TESTING/journal/notes/0xr8vL8mvJ3EdczUtXiy`);
+    const noteSnap = await getDoc(docRef)
+
+    expect(noteSnap.data().url).toBe('https://test.com/url.png');
+    
+  });
+
 });
