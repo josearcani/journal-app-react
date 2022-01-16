@@ -45,8 +45,6 @@ describe('Test on notes actions', () => {
     expect(actions[0]).toEqual(noteActive(id, { title, body, date }));
     expect(actions[1]).toEqual(addNewNote(id, { title, body, date }));
     
-    // await store.dispatch(startDeleting(id)); // THIS BRINGS AN ERROR FROM SWEETALERT
-    // expect(actions[2]).toEqual(deleteNote(id));
     const noteRef = doc(db, `TESTING/journal/notes/${ id }`);
     await deleteDoc(noteRef);
 
