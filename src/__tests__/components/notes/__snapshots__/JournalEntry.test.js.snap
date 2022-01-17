@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test on <JournalEntry /> should JournalEntry render normally 1`] = `
+<div
+  className="journal__entry animate__animated animate__fadeInLeft animate__faster"
+  onClick={[Function]}
+>
+  <div
+    className="journal__entry-picture"
+    style={
+      Object {
+        "backgroundColor": "cover",
+        "backgroundImage": "url(https://somehow.test/noPicture.jpg)",
+        "backgroundPosition": "center",
+        "backgroundRepeat": "no-repeat",
+      }
+    }
+  />
+  <div
+    className="journal__entry-body"
+  >
+    <p
+      className="journal__entry-title"
+    >
+      Test title
+    </p>
+    <p
+      className="journal__entry-content"
+    >
+      I am a body
+    </p>
+  </div>
+  <div
+    className="journal__entry-date-box"
+  >
+    <span>
+      Wednesday
+    </span>
+    <h4>
+      31st
+    </h4>
+  </div>
+</div>
+`;
