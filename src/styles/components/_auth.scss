@@ -2,7 +2,7 @@
 .auth__main {
   align-items: center;
   background-color: $primary;
-  background: url(https://i.postimg.cc/K80mVv3N/background.jpg) center/cover no-repeat;
+  background: url(https://i.postimg.cc/rwsrNjpf/patrick-fore-background.jpg) center/cover no-repeat;
   display: flex;
   height: 100vh;
   justify-content: center;
@@ -18,7 +18,7 @@
     content: '';
     position: absolute;
     background: darken($color: $primary, $amount: 80);
-    background: linear-gradient(to bottom, rgba(90, 93, 165, 1), rgba(0, 0, 0, .7));
+    background: linear-gradient(to bottom, #19192078, rgba(0, 0, 0, 0.7));
   }
 }
 
