@@ -14,7 +14,7 @@
   transition: color .3s ease;
 
   &:hover {
-    color: darken($color: white, $amount: 30);
+    // color: darken($color: white, $amount: 30);
   }
 
 }
@@ -36,10 +36,10 @@
 }
 
 .btn-danger {
-  background-color: red;
+  background-color: $action;
   transition: background-color 0.3s ease;
   &:hover {
-    background-color: darken($color: red, $amount: 15);
+    background-color: darken($color: $action, $amount: 15);
   }
 }
 .btn-block {
