@@ -52,4 +52,27 @@
   padding: 10px 20px;
 }
 
+.notes__appbar-datetime {
+  font-size: 14px;
+  :last-child{
+    font-size: 12px;
+    font-weight: lighter;
+  }
+}
 
+.notes__appbar-btn-container {
+  button {
+    border-radius: 50px;
+    margin-left: 5px;
+  }
+}
+
+.delete {
+  background-color: $action;
+}
+.upload {
+  background-color: $secondary;
+}
+.save {
+  background-color: $google-blue;
+}
