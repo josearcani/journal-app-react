@@ -1,13 +1,20 @@
 .nothing__main-context {
   align-items: center;
-  background-color: $primary;
-  color: white;
+  background-color: $secondary;
+  color: $light-grey;
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100vh;
-  
+  position: relative;
+
   p {
     text-align: center;
+    font-size: xx-large;
   }
+
+  i {
+    cursor: pointer;
+  }
+
 }
