@@ -36,7 +36,7 @@ export const Sidebar = () => {
           className="btn btn-danger"
           onClick={ handleLogout }
         >
-          <i class="fas fa-sign-out-alt"></i>&nbsp;
+          <i className="fas fa-sign-out-alt"></i>&nbsp;
           Logout
         </button>
 
@@ -48,8 +48,8 @@ export const Sidebar = () => {
           <span >January 13, 2022</span>
         </div>
         <div className="journal__forecast-temperature">
-          <p class="unit">
-            <i class="far fa-sun"></i>&nbsp;34<i>&deg;</i>
+          <p className="unit">
+            <i className="far fa-sun"></i>&nbsp;34<i>&deg;</i>
           </p>
           <span>Seul</span>
         </div>

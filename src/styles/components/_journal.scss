@@ -136,7 +136,8 @@
 }
 
 .journal__entry-body {
-  padding: 5px;
+  padding-top: 2px;
+  padding-left: 5px;
 }
 
 .journal__entry-title {
@@ -153,8 +154,10 @@
   flex-direction: column;
   justify-content: center;
   padding: 5px;
-}
-
-.journal__entry-date-box span {
-  font-size: 12px;
+  span {
+    font-size: 12px;
+  }
+  h4 {
+    font-weight: lighter;
+  }
 }
