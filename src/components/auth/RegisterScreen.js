@@ -110,7 +110,7 @@ export const RegisterScreen = () => {
 
       <button
         type="submit"
-        className="btn btn-primary btn-block mb-1"
+        className="btn btn-primary btn-block mb-5"
         disabled={ loading }
       >
         Register

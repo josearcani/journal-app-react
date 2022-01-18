@@ -2,19 +2,36 @@
 .auth__main {
   align-items: center;
   background-color: $primary;
+  background: url(https://i.postimg.cc/K80mVv3N/background.jpg) center/cover no-repeat;
   display: flex;
+  height: 100vh;
   justify-content: center;
   margin: 0px;
-  height: 100vh;
+  position: relative;
   width: 100vw;
+
+  &::before {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    position: absolute;
+    background: darken($color: $primary, $amount: 80);
+    background: linear-gradient(to bottom, rgba(90, 93, 165, 1), rgba(0, 0, 0, .7));
+  }
 }
+
+// background: linear-gradient(to bottom, rgba(90, 93, 165, 1), rgba(0, 0, 0, .7));
+// background: rgb(90 93 165 / 80%);
 
 .auth__box-container {
   background: white;
-  box-shadow: 0px 3px $dark-grey;
-  border-radius: 2px;
+  box-shadow: 0 12px 15px 0 rgb(0 0 0 / 24%), 0 17px 50px 0 rgb(0 0 0 / 19%);
+  border-radius: 5px;
   padding: 20px;
   width: 250px;
+  z-index: 100;
 }
 
 .auth__title {
@@ -27,7 +44,7 @@
   border-bottom: 1px solid $light-grey;
   color: $dark-grey;
   font-size: 16px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   height: 20px;
   width: 100%;
 
@@ -48,6 +65,11 @@
   padding-top: 20px;
   padding-bottom: 20px;
   width: 100%;
+  & p {
+    font-size: 12px;
+    color: $primary;
+    margin-bottom: 10px;
+  }
 }
 
 // error message
