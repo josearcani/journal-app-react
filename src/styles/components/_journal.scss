@@ -4,20 +4,41 @@
 
 // <Sidebar />
 .journal__sidebar {
-  background-color: $dark-grey;
+  background-color: $primary;
+  background: url(https://i.postimg.cc/K80mVv3N/background.jpg) center/cover no-repeat;
   color: white;
   display: flex;
   flex-direction: column;
   height: 100vh;
   padding-left: 10px;
   padding-right: 10px;
+  position: relative;
   width: 450px;
+
+  &::before {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    position: absolute;
+    background: darken($color: $primary, $amount: 80);
+    background: linear-gradient(to bottom, rgba(90, 93, 165, 1), rgba(0, 0, 0, .7));
+  }
+
 }
 
 .journal__sidebar-navbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 10px;
+  z-index: 10;
+  margin-bottom: 15px;
+  
+  button {
+    border-radius: 50px;
+  }
 }
 
 .journal__sidebar-navbar h3 {
@@ -27,29 +48,69 @@
   }
 }
 
-.journal__new-entry {
-  align-items: center;
-  border: 2px solid $light-grey;
-  border-radius: 5px;
+.journal__forecast {
+  display: flex;
   padding-top: 5px;
   padding-bottom: 5px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  margin-top: 30px;
+  margin-bottom: 15px;
+  justify-content: space-between;
   width: 100%;
-  transition: .4s ease;
-
-  &:hover {
-    color: darken($color: white, $amount: 30);
-  }
-
+  z-index: 10;
 }
 
+.journal__forecast-datetime,
+.journal__forecast-temperature {
+  & p {
+    font-size: 18px;
+  }
+  & span {
+    font-size: 10px;
+    color: $light-grey;
+  }
+}
+
+.journal__new-entry {
+  align-items: center;
+  background-color: $action;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  height: 20px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  position: relative;
+  transition: .4s ease;
+  z-index: 10;
+
+  &::before {
+    background-color: inherit;
+    border-radius: 50%;
+    content: '';
+    left: calc(0% - 15px);
+    position: absolute;
+    height: 30px;
+    width: 30px;
+  }
+  &::after {
+    background-color: inherit;
+    border-radius: 50%;
+    content: '';
+    height: 30px;
+    position: absolute;
+    right: calc(0% - 15px);
+    width: 30px;
+  }
+  &:hover {
+    background-color: darken($color: $action, $amount: 15);
+  }
+}
 
 // <JournalEntries />
 .journal__entries {
-  margin-top: 30px;
   flex: 1 1 auto;
   overflow-y: scroll;
 }
@@ -62,18 +123,23 @@
   cursor: pointer;
   color: $dark-grey;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   margin-bottom: 10px;
   overflow: hidden;
+  height: 50px;
 }
 
 .journal__entry-picture {
-  height: 75px;
-  width: 75px;
+  width: 50px;
+	max-width: 100%;
+	height: auto;
 }
 
 .journal__entry-body {
-  padding: 10px;
+  max-width: 180px;
+  padding-top: 2px;
+  padding-left: 5px;
+  flex-grow: 1;
 }
 
 .journal__entry-title {
@@ -90,8 +156,10 @@
   flex-direction: column;
   justify-content: center;
   padding: 5px;
-}
-
-.journal__entry-date-box span {
-  font-size: 12px;
+  span {
+    font-size: 12px;
+  }
+  h4 {
+    font-weight: lighter;
+  }
 }

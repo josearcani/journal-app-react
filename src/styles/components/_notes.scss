@@ -1,7 +1,42 @@
 .notes__main-content {
   display: flex;
+  background-color: lighten($color: $secondary, $amount: 5);
+  background: url(https://i.postimg.cc/SxPzT92k/sixteen-miles-background.jpg) center/cover no-repeat;
   flex-direction: column;
   height: 100%;
+  position: relative;
+
+  &::before {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    position: absolute;
+    background: darken($color: $primary, $amount: 80);
+    background: linear-gradient(to bottom, #000000bf, rgba(0, 0, 0, 0.92));
+  }
+
+  & button {
+    z-index: 10;
+  }
+}
+
+.notes__background-image {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  filter: blur(1px);
+  &::before {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    position: absolute;
+    background: darken($color: $primary, $amount: 80);
+    background: linear-gradient(to bottom, #000000bf, rgba(0, 0, 0, 0.92));
+  }
 }
 
 .notes__content {
@@ -9,27 +44,29 @@
   flex-direction: column;
   height: 100%;
   padding: 20px;
+  z-index: 10;
 }
 
 .notes__textarea,
 .notes__title-input {
   border: none;
-
+  color: $light-grey;
   &:focus {
     outline: none;
   }
 }
 
 .notes__title-input {
-  color: $dark-grey;
+  color: lighten($color: $light-grey, $amount: 20);
   font-size: 25px;
   font-weight: 700;
+  background-color: transparent;
   margin-bottom: 10px;
 }
 
 .notes__textarea {
+  background-color: transparent;
   border: none;
-  color: $dark-grey;
   font-size: 20px;
   flex: 1 1 auto;
   resize: none;
@@ -50,6 +87,30 @@
   display: flex;
   justify-content: space-between;
   padding: 10px 20px;
+  z-index: 10;
 }
 
+.notes__appbar-datetime {
+  font-size: 14px;
+  :last-child{
+    font-size: 12px;
+    font-weight: lighter;
+  }
+}
 
+.notes__appbar-btn-container {
+  button {
+    border-radius: 50px;
+    margin-left: 5px;
+  }
+}
+
+.delete {
+  background-color: $action;
+}
+.upload {
+  background-color: $secondary;
+}
+.save {
+  background-color: $google-blue;
+}

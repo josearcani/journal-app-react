@@ -22,7 +22,7 @@ export const JournalEntry = ({ id, title, body, url, date }) => {
         url && <div 
         className="journal__entry-picture"
         style={{
-          backgroundColor: 'cover',
+          backgroundSize: 'cover',
           backgroundImage: `url(${ url })`,
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center'
@@ -32,10 +32,10 @@ export const JournalEntry = ({ id, title, body, url, date }) => {
 
       <div className="journal__entry-body">
         <p className="journal__entry-title">
-          { title }
+          { (title.length > 20) ? `${ title.substring(0,20) }...` : title }
         </p>
         <p className="journal__entry-content">
-          { body }
+          { (body.length > 50) ? `${ body.substring(0,50) }...` : body }
         </p>
 
       </div>

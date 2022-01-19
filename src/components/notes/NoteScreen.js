@@ -33,6 +33,18 @@ export const NoteScreen = () => {
 
   return (
     <div className="notes__main-content">
+      
+      {
+        note.url && <div 
+        className="notes__background-image"
+        style={{
+          backgroundSize: 'cover',
+          backgroundImage: `url(${ note.url })`,
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+        }}
+        ></div>
+      }
 
       <NotesAppBar />
 
