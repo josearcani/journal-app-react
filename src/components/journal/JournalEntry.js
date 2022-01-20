@@ -2,14 +2,21 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import moment from 'moment';
 import { noteActive } from '../../actions/notes';
+import { toggleClose } from '../../actions/ui';
+import { useWindowDimensions } from '../../hooks/useWindowDimensions';
 
 export const JournalEntry = ({ id, title, body, url, date }) => {
 
   const noteDate = moment(date);
   const dispatch = useDispatch();
 
+  const { width } = useWindowDimensions();
+
   const handleEntryClick = () => {
     dispatch(noteActive(id, { title, body, date, url }));
+    if (width < 721) {
+      dispatch(toggleClose());
+    }
   }
 
   return (

@@ -38,12 +38,12 @@ export const uiReducer = (state = initialState, action) => {
     case types.uiOpenToggle:
       return {
         ...state,
-        toggle: true
-      }
-    case types.uiCloseToggle:
-      return {
-        ...state,
         toggle: false
+      }
+      case types.uiCloseToggle:
+        return {
+          ...state,
+        toggle: true
       }
     default:
       return state;

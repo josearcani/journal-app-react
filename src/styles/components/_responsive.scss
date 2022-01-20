@@ -1,0 +1,27 @@
+@media (max-width: 724px) {
+  .journal__main-context {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 425px) {
+  .journal__main-context {
+    overflow: hidden;
+  }
+
+  .notes__appbar-btn-container {
+    display: flex;
+  }
+  
+  .notes__appbar-datetime {
+    :first-child {
+      display: none;
+    }
+  }
+
+  .journal__sidebar {
+    .toggle {
+      height: 62px;
+    }
+  }
+}

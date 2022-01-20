@@ -8,11 +8,6 @@ export const JournalScreen = () => {
 
   const { active } = useSelector(state => state.notes);
   const { toggle } = useSelector(state => state.ui);
-  
-  // const handleToogle = () => {
-  //   console.log('asdfasdf');
-  // }
-  console.log(toggle);
 
   return (
     <div className="journal__main-context animate__animated animate__fadeIn animate__faster">
