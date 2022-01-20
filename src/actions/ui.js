@@ -1,4 +1,4 @@
-import { types } from "../types/types";
+import { types } from '../types/types';
 
 export const setError = (err) => ({
   type: types.uiSetError,
@@ -15,4 +15,16 @@ export const startLoading = () => ({
 
 export const finishLoading = () => ({
   type: types.uiFinishLoading,
+})
+
+export const toggleOpen = () => ({
+  type: types.uiOpenToggle,
+})
+
+export const toggleClose = () => ({
+  type: types.uiCloseToggle,
+})
+
+export const toggleAction = () => ({
+  type: types.uiToggle,
 })
