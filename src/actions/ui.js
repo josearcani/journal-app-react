@@ -17,6 +17,14 @@ export const finishLoading = () => ({
   type: types.uiFinishLoading,
 })
 
+export const toggleOpen = () => ({
+  type: types.uiOpenToggle,
+})
+
+export const toggleClose = () => ({
+  type: types.uiCloseToggle,
+})
+
 export const toggleAction = () => ({
   type: types.uiToggle,
 })
