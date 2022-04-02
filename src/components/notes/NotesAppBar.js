@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
-import { startSaveNote, startUploading } from '../../actions/notes';
+import { startDeleting, startSaveNote, startUploading } from '../../actions/notes';
 
 export const NotesAppBar = () => {
 
@@ -16,6 +16,10 @@ export const NotesAppBar = () => {
 
   const handleUploadPicture = () => {
     document.querySelector('#fileSelector').click();
+  }
+
+  const handleDelete = () => {
+    dispatch(startDeleting(active.id))
   }
 
   const handleFileChange = (e) => {
@@ -43,7 +47,7 @@ export const NotesAppBar = () => {
       <div className="notes__appbar-btn-container">
         <button
           className="btn btn-primary delete"
-          onClick={ handleUploadPicture }
+          onClick={ handleDelete }
         >
           <i className="fas fa-trash"></i>&nbsp;
           Delete
